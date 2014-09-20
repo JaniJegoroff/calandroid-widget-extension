@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    calandroid-widget-extension (0.0.2)
+    calandroid-widget-extension (0.0.3)
       calabash-android (~> 0.5)
       to_boolean (~> 1.0)
 
