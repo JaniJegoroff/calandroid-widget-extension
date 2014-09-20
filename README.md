@@ -24,6 +24,9 @@ Supported widgets
 Currently small subset of widgets are supported. Supported widgets are:
 
 `Button`
+`FrameLayout`
+`ImageButton`
+`LinearLayout`
 `ListView`
 `TextView`
 
