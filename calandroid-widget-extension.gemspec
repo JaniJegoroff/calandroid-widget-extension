@@ -1,6 +1,8 @@
+require_relative 'lib/calandroid-widget-extension/version'
+
 Gem::Specification.new do |gem|
   gem.name          = 'calandroid-widget-extension'
-  gem.version       = '0.0.1'
+  gem.version       = CalandroidWidgetExtension::VERSION
   gem.platform      = Gem::Platform::RUBY
   gem.authors       = ['Jani Jegoroff']
   gem.email         = ['jani.jegoroff@gmail.com']

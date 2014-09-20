@@ -2,6 +2,8 @@ require 'calabash-android/operations'
 
 require 'to_boolean'
 
+require 'calandroid-widget-extension/version'
+
 require 'calandroid-widget-extension/base'
 require 'calandroid-widget-extension/button'
 require 'calandroid-widget-extension/frame_layout'
