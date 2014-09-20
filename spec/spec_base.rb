@@ -11,6 +11,61 @@ class SpecBase < Minitest::Spec
   end
 
   describe 'Base' do
+    classes = [Button, FrameLayout, ImageButton, LinearLayout, ListView, TextView]
+    classes.each do |klass|
+      describe "#{klass}.class_name" do
+        it 'should return class name' do
+          klass.class_name.must_equal(klass.to_s)
+        end
+      end
+
+      describe "#{klass}.touch and aliases" do
+        it 'should call Calabash touch method with correct parameters' do
+          klass.touch
+          $uiquery.must_equal("#{klass.class_name}")
+
+          klass.touch(0)
+          $uiquery.must_equal("#{klass.class_name} index:0")
+
+          klass.touch('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+
+          klass.tap
+          $uiquery.must_equal("#{klass.class_name}")
+
+          klass.tap(0)
+          $uiquery.must_equal("#{klass.class_name} index:0")
+
+          klass.tap('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+        end
+      end
+
+      describe "#{klass}.property and aliases" do
+        it 'should call Calabash query method with correct parameters' do
+          klass.property(:finland)
+          $uiquery.must_equal("#{klass.class_name}")
+          $args.first.must_equal(:finland)
+
+          klass.prop(:finland)
+          $uiquery.must_equal("#{klass.class_name}")
+          $args.first.must_equal(:finland)
+
+          klass.p(:finland)
+          $uiquery.must_equal("#{klass.class_name}")
+          $args.first.must_equal(:finland)
+        end
+      end
+
+      describe "#{klass}.id" do
+        it 'should call Calabash query method with correct parameters' do
+          klass.id
+          $uiquery.must_equal("#{klass.class_name}")
+          $args.first.must_equal(:id)
+        end
+      end
+    end
+
     describe 'Base.raise_if_invalid' do
       it 'should raise' do
         proc { Button.text(:symbol) }.must_raise(RuntimeError)
