@@ -66,7 +66,7 @@ class SpecBase < Minitest::Spec
       end
     end
 
-    describe 'Base.raise_if_invalid' do
+    describe 'Base.fail_if_invalid' do
       it 'should raise' do
         proc { Button.text(:symbol) }.must_raise(RuntimeError)
         proc { Button.touch(:symbol) }.must_raise(RuntimeError)
