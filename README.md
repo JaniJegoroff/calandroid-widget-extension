@@ -1,3 +1,6 @@
+[![Gem Version](https://badge.fury.io/rb/calandroid-widget-extension.svg)](http://badge.fury.io/rb/calandroid-widget-extension)
+[![Dependency Status](https://gemnasium.com/JaniJegoroff/calandroid-widget-extension.svg)](https://gemnasium.com/JaniJegoroff/calandroid-widget-extension)
+
 calandroid-widget-extension
 ==========
 
