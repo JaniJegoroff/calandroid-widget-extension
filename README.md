@@ -68,6 +68,9 @@ Execute some example Calabash and equivalent `calandroid-widget-extension` comma
 `query('ListView', :count).first`
 > **`ListView.count`**
 
+`query('ListView', smoothScrollToPosition: 10)`
+> **`ListView.scroll_to_index(10)`**
+
 `query('TextView', :text).first`
 > **`TextView.text`**
 
