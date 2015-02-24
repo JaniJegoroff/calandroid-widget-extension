@@ -1,5 +1,8 @@
+# rubocop:disable Style/GlobalVars
+
 require_relative 'spec_helper'
 
+# Test class for TextView
 class SpecTextView < Minitest::Spec
   before do
     $uiquery = nil

@@ -1,5 +1,12 @@
+# rubocop:disable Style/GlobalVars
+# rubocop:disable Style/BracesAroundHashParameters
+# rubocop:disable Style/SpaceInsideHashLiteralBraces
+# rubocop:disable Style/HashSyntax
+# rubocop:disable Style/SpaceAroundOperators
+
 require_relative 'spec_helper'
 
+# Test class for ListView
 class SpecListView < Minitest::Spec
   before do
     $uiquery = nil
