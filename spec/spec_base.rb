@@ -1,4 +1,5 @@
 # rubocop:disable Style/GlobalVars
+# rubocop:disable Metrics/ClassLength
 
 require_relative 'spec_helper'
 
@@ -78,6 +79,25 @@ class SpecBase < Minitest::Spec
 
           klass.help.must_equal(klass.public_methods(false))
           klass.h.must_equal(klass.public_methods(false))
+        end
+      end
+
+      describe "#{klass}.query and aliases" do
+        it 'should call Calabash query method with correct parameters' do
+          klass.query
+          $uiquery.must_equal("#{klass.class_name}")
+          klass.q
+          $uiquery.must_equal("#{klass.class_name}")
+
+          klass.query(1)
+          $uiquery.must_equal("#{klass.class_name} index:1")
+          klass.q(2)
+          $uiquery.must_equal("#{klass.class_name} index:2")
+
+          klass.query('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          klass.q('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
         end
       end
     end
