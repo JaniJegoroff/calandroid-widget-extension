@@ -67,6 +67,19 @@ class SpecBase < Minitest::Spec
           $args.first.must_equal(:id)
         end
       end
+
+      describe "#{klass}.help" do
+        it 'should return public methods' do
+          klass.help.must_be_kind_of(Array)
+          klass.h.must_be_kind_of(Array)
+
+          klass.help.must_include(:help)
+          klass.h.must_include(:h)
+
+          klass.help.must_equal(klass.public_methods(false))
+          klass.h.must_equal(klass.public_methods(false))
+        end
+      end
     end
 
     describe 'Base.fail_if_invalid' do
