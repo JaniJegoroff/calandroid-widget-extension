@@ -100,6 +100,25 @@ class SpecBase < Minitest::Spec
           $uiquery.must_equal("#{klass.class_name} marked:'myId'")
         end
       end
+
+      describe "#{klass}.flash and aliases" do
+        it 'should call Calabash flash method with correct parameters' do
+          klass.flash
+          $uiquery.must_equal("#{klass.class_name}")
+          klass.f
+          $uiquery.must_equal("#{klass.class_name}")
+
+          klass.flash(1)
+          $uiquery.must_equal("#{klass.class_name} index:1")
+          klass.f(2)
+          $uiquery.must_equal("#{klass.class_name} index:2")
+
+          klass.flash('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          klass.f('myId')
+          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+        end
+      end
     end
 
     describe 'Base.fail_if_invalid' do
