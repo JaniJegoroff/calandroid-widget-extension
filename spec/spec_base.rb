@@ -1,4 +1,3 @@
-# rubocop:disable Style/GlobalVars
 # rubocop:disable Metrics/ClassLength
 
 require_relative 'spec_helper'
@@ -6,12 +5,7 @@ require_relative 'spec_helper'
 # Test class for Base
 class SpecBase < Minitest::Spec
   before do
-    $uiquery = nil
-    $args = nil
-  end
-
-  after do
-    # nop
+    @opr = Calabash::Android::Operations
   end
 
   describe 'Base' do
@@ -26,46 +20,46 @@ class SpecBase < Minitest::Spec
       describe "#{klass}.touch and aliases" do
         it 'should call Calabash touch method with correct parameters' do
           klass.touch
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
 
           klass.touch(0)
-          $uiquery.must_equal("#{klass.class_name} index:0")
+          @opr.ui_query.must_equal("#{klass.class_name} index:0")
 
           klass.touch('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
 
           klass.tap
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
 
           klass.tap(0)
-          $uiquery.must_equal("#{klass.class_name} index:0")
+          @opr.ui_query.must_equal("#{klass.class_name} index:0")
 
           klass.tap('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
         end
       end
 
       describe "#{klass}.property and aliases" do
         it 'should call Calabash query method with correct parameters' do
           klass.property(:finland)
-          $uiquery.must_equal("#{klass.class_name}")
-          $args.first.must_equal(:finland)
+          @opr.ui_query.must_equal("#{klass.class_name}")
+          @opr.args.first.must_equal(:finland)
 
           klass.prop(:finland)
-          $uiquery.must_equal("#{klass.class_name}")
-          $args.first.must_equal(:finland)
+          @opr.ui_query.must_equal("#{klass.class_name}")
+          @opr.args.first.must_equal(:finland)
 
           klass.p(:finland)
-          $uiquery.must_equal("#{klass.class_name}")
-          $args.first.must_equal(:finland)
+          @opr.ui_query.must_equal("#{klass.class_name}")
+          @opr.args.first.must_equal(:finland)
         end
       end
 
       describe "#{klass}.id" do
         it 'should call Calabash query method with correct parameters' do
           klass.id
-          $uiquery.must_equal("#{klass.class_name}")
-          $args.first.must_equal(:id)
+          @opr.ui_query.must_equal("#{klass.class_name}")
+          @opr.args.first.must_equal(:id)
         end
       end
 
@@ -85,38 +79,38 @@ class SpecBase < Minitest::Spec
       describe "#{klass}.query and aliases" do
         it 'should call Calabash query method with correct parameters' do
           klass.query
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
           klass.q
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
 
           klass.query(1)
-          $uiquery.must_equal("#{klass.class_name} index:1")
+          @opr.ui_query.must_equal("#{klass.class_name} index:1")
           klass.q(2)
-          $uiquery.must_equal("#{klass.class_name} index:2")
+          @opr.ui_query.must_equal("#{klass.class_name} index:2")
 
           klass.query('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
           klass.q('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
         end
       end
 
       describe "#{klass}.flash and aliases" do
         it 'should call Calabash flash method with correct parameters' do
           klass.flash
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
           klass.f
-          $uiquery.must_equal("#{klass.class_name}")
+          @opr.ui_query.must_equal("#{klass.class_name}")
 
           klass.flash(1)
-          $uiquery.must_equal("#{klass.class_name} index:1")
+          @opr.ui_query.must_equal("#{klass.class_name} index:1")
           klass.f(2)
-          $uiquery.must_equal("#{klass.class_name} index:2")
+          @opr.ui_query.must_equal("#{klass.class_name} index:2")
 
           klass.flash('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
           klass.f('myId')
-          $uiquery.must_equal("#{klass.class_name} marked:'myId'")
+          @opr.ui_query.must_equal("#{klass.class_name} marked:'myId'")
         end
       end
     end

@@ -1,56 +1,49 @@
-# rubocop:disable Style/GlobalVars
-
 require_relative 'spec_helper'
 
 # Test class for Button
 class SpecButton < Minitest::Spec
   before do
-    $uiquery = nil
-    $args = nil
-  end
-
-  after do
-    # nop
+    @opr = Calabash::Android::Operations
   end
 
   describe 'Button' do
     describe 'Button.text' do
       it 'should call Calabash query method with correct parameters' do
-        $stub_query_response = %w(varkaus oulu kuopio)
+        @opr.response = %w(varkaus oulu kuopio)
 
         Button.text.must_equal('varkaus')
-        $uiquery.must_equal("#{Button.class_name}")
-        $args.first.must_equal(:text)
+        @opr.ui_query.must_equal("#{Button.class_name}")
+        @opr.args.first.must_equal(:text)
 
         Button.text(0).must_equal('varkaus')
-        $uiquery.must_equal("#{Button.class_name} index:0")
-        $args.first.must_equal(:text)
+        @opr.ui_query.must_equal("#{Button.class_name} index:0")
+        @opr.args.first.must_equal(:text)
 
         Button.text('myId').must_equal('varkaus')
-        $uiquery.must_equal("#{Button.class_name} marked:'myId'")
-        $args.first.must_equal(:text)
+        @opr.ui_query.must_equal("#{Button.class_name} marked:'myId'")
+        @opr.args.first.must_equal(:text)
       end
     end
 
     describe 'Button.selected?' do
       it 'should call Calabash query method with correct parameters' do
-        $stub_query_response = [false, true]
+        @opr.response = [false, true]
         ret = Button.selected?
         ret.must_equal(false)
-        $uiquery.must_equal("#{Button.class_name}")
-        $args.first.must_equal(:selected)
+        @opr.ui_query.must_equal("#{Button.class_name}")
+        @opr.args.first.must_equal(:selected)
 
-        $stub_query_response = [false, true]
+        @opr.response = [false, true]
         ret = Button.selected?(0)
         ret.must_equal(false)
-        $uiquery.must_equal("#{Button.class_name} index:0")
-        $args.first.must_equal(:selected)
+        @opr.ui_query.must_equal("#{Button.class_name} index:0")
+        @opr.args.first.must_equal(:selected)
 
-        $stub_query_response = [true, false]
+        @opr.response = [true, false]
         ret = Button.selected?('myId')
         ret.must_equal(true)
-        $uiquery.must_equal("#{Button.class_name} marked:'myId'")
-        $args.first.must_equal(:selected)
+        @opr.ui_query.must_equal("#{Button.class_name} marked:'myId'")
+        @opr.args.first.must_equal(:selected)
       end
     end
   end

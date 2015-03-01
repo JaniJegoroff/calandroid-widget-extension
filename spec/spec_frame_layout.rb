@@ -6,10 +6,6 @@ class SpecFrameLayout < Minitest::Spec
     # nop
   end
 
-  after do
-    # nop
-  end
-
   describe 'FrameLayout' do
     # Nothing here yet
   end

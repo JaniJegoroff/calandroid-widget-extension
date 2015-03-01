@@ -1,5 +1,3 @@
-# rubocop:disable Style/GlobalVars
-
 require 'calabash-android/operations'
 
 # Stub for Calabash
@@ -8,26 +6,26 @@ module Calabash
   module Android
     # Stub for Operations
     module Operations
+      attr_accessor :ui_query
+      attr_accessor :args
+      attr_accessor :opts
+      attr_accessor :response
+
       def query(uiquery, *args)
-        $uiquery = uiquery
-        $args = args
-        $stub_query_response
+        @ui_query = uiquery
+        @args = args
+        @response = response
       end
 
       def flash(uiquery, *args)
-        $uiquery = uiquery
-        $args = args
+        @ui_query = uiquery
+        @args = args
       end
 
       def touch(uiquery, opts = {})
-        $uiquery = uiquery
-        $opts = opts
+        @ui_query = uiquery
+        @opts = opts
       end
     end
   end
-end
-
-# Just for including Calabash::Android::Operations stub
-class CalabashAndroidOperationsStubClass
-  include Calabash::Android::Operations
 end

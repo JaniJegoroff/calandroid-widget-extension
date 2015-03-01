@@ -6,10 +6,6 @@ class SpecLinearLayout < Minitest::Spec
     # nop
   end
 
-  after do
-    # nop
-  end
-
   describe 'LinearLayout' do
     # Nothing here yet
   end
