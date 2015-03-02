@@ -1,6 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/calandroid-widget-extension.svg)](http://badge.fury.io/rb/calandroid-widget-extension)
 [![Build Status](https://travis-ci.org/JaniJegoroff/calandroid-widget-extension.svg?branch=master)](https://travis-ci.org/JaniJegoroff/calandroid-widget-extension)
 [![Coverage Status](https://coveralls.io/repos/JaniJegoroff/calandroid-widget-extension/badge.svg?branch=master)](https://coveralls.io/r/JaniJegoroff/calandroid-widget-extension?branch=master)
+[![Code Climate](https://codeclimate.com/github/JaniJegoroff/calandroid-widget-extension/badges/gpa.svg)](https://codeclimate.com/github/JaniJegoroff/calandroid-widget-extension)
 [![Dependency Status](https://gemnasium.com/JaniJegoroff/calandroid-widget-extension.svg)](https://gemnasium.com/JaniJegoroff/calandroid-widget-extension)
 
 calandroid-widget-extension
@@ -99,7 +100,7 @@ Run the tests
 
 `$ bundle`
 
-`$ rake`
+`$ bundle exec rake`
 
 License
 ==========
